@@ -13,6 +13,20 @@ class Penilaian extends CI_Controller {
    $this->load->view('penilaian/penilaian_header');
    $this->load->view('penilaian/deskripsinilai',$data);
  }
+ public function tambah_desknilai(){
+  $katnilai=$this->input->post('katnilai');
+    $bobot=$this->input->post('bobot');
+    $data= array(
+      'kategori_nilai'=>$katnilai,
+      'bobot'=>$bobot
+      );
+    $this->load->model('m_data');
+    $this->m_data->tambah_data($data,'kategori_nilai');
+  $this->load->view('penilaian/penilaian_header');
+  $this->load->view('penilaian/kategorinilai');     
+  redirect('penilaian/kategorinilai');
+}
+
 
 public function hapus_desknilai($id){
   $this->load->model('M_data');
@@ -58,8 +72,14 @@ public function ajax_list()
 
 }
 public function tambah_katnilai(){
-  $this->load->model('M_data');
-  $this->M_data->setkategorinilai($data);
+  $katnilai=$this->input->post('katnilai');
+    $bobot=$this->input->post('bobot');
+    $data= array(
+      'kategori_nilai'=>$katnilai,
+      'bobot'=>$bobot
+      );
+    $this->load->model('m_data');
+    $this->m_data->tambah_data($data,'kategori_nilai');
   $this->load->view('penilaian/penilaian_header');
   $this->load->view('penilaian/kategorinilai');     
   redirect('penilaian/kategorinilai');

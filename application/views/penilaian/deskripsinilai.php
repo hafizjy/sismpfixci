@@ -248,34 +248,34 @@
                 <option>B.Inggris</option>
               </select>
             </form>
-            <form class="form-horizontal formmapel">
+            <form class="form-horizontal formmapel" method="post" action="" id="desknilai">
               <div class="bigbox-mapel"> 
                 <div class="box-mapel">
                   <div class="form-group formgrup jarakform">
                     <label for="inputKurikulum" class="col-sm-2 control-label">Batas Nilai Atas</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" id="inputName" placeholder="Batas Nilai Atas">
+                      <input type="text" class="form-control" id="inputName" name="bts_a" placeholder="Batas Nilai Atas">
                     </div>
                   </div>
 
                   <div class="form-group formgrup jarakform">
                     <label for="inputKurikulum" class="col-sm-2 control-label">Batas Nilai Bawah</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" id="inputName" placeholder="Batas Nilai Bawah">
+                      <input type="text" class="form-control" id="inputName" name="bts_b" placeholder="Batas Nilai Bawah">
                     </div>
                   </div>
 
                   <div class="form-group formgrup jarakform">
                     <label for="inputKurikulum" class="col-sm-2 control-label">Predikat Nilai</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" id="inputName" placeholder="Predikat nilai">
+                      <input type="text" class="form-control" name="predikat" id="inputName" placeholder="Predikat nilai">
                     </div>
                   </div>
 
                   <div class="form-group formgrup jarakform">
                     <label for="inputKurikulum" class="col-sm-2 control-label">Deskripsi Nilai</label>
                     <div class="col-sm-10">
-                      <textarea></textarea>
+                      <textarea name="deskripsi" form="desknilai"></textarea>
                       <!-- <input type="text" class="form-control" id="inputName" placeholder="Deskripsi nilai"> -->
                     </div>
                   </div>
@@ -693,12 +693,12 @@
   $(document).ready(function() {
       var max_fields      = 50; //maximum input boxes allowed
       var wrapper         = $(".bigbox-mapel"); //Fields wrapper
-      var add_button      = $("#tambahmapel"); //Add button ID
+      var add_button      = $("#tambahdeskripsi"); //Add button ID
       var box_mapel       = `<div class="box-mapel">
       <div class="form-group formgrup jarakform">
         <label for="inputKurikulum" class="col-sm-2 control-label">Nama Kategori Nilai</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" id="inputName" placeholder="Nama Kategori Nilai">
+          <input type="text" class="form-control" name="" id="inputName" placeholder="Nama Kategori Nilai">
         </div>
       </div>
 

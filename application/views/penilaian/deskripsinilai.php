@@ -223,7 +223,7 @@
       <!-- /.col -->
       <div class="col-md-12">
         <div class="nav-tabs-custom">
-          
+
           <ul class="nav nav-tabs">
             <li class="active"><a href="#lihatdeskripsi" data-toggle="tab">Lihat Deskripsi Nilai</a></li>
             <li class=""><a href="#tambahdeskripsi" data-toggle="tab">Tambah Deskripsi Nilai</a></li>
@@ -231,7 +231,7 @@
           
 
           <div class="tab-content">
-            <div class=" tab-pane " id="tambahdeskripsi">
+            <div class="  tab-pane " id="tambahdeskripsi">
              <select>
               <option>Kelas 7</option>
               <option>Kelas 8</option>
@@ -293,118 +293,119 @@
             </form>
 
           </div>
-          </div>
-          <!-- /.tab-pane -->
+          <div class="tab-pane active" id="lihatdeskripsi">
+         <select>
+          <option>Kelas 7</option>
+          <option>Kelas 8</option>
+          <option>Kelas 9</option>
 
-          <!-- /.tab-pane -->
-
-          
-          <div class="tab-pane " id="lihatdeskripsi">
-           <select>
-            <option>Kelas 7</option>
-            <option>Kelas 8</option>
-            <option>Kelas 9</option>
-
+        </select>
+        <form class="">
+          <select>
+            <option>Matematika</option>
+            <option>Bahasa Indo</option>
+            <option>IPA</option>
+            <option>IPS</option>
+            <option>PPKn</option>
+            <option>B.Inggris</option>
           </select>
-          <form class="">
-            <select>
-              <option>Matematika</option>
-              <option>Bahasa Indo</option>
-              <option>IPA</option>
-              <option>IPS</option>
-              <option>PPKn</option>
-              <option>B.Inggris</option>
-            </select>
-          </form>
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data Deskripsi Nilai</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th class="fit">No</th>
-                    <th>Batas Nilai Atas</th>
-                    <th>Batas Nilai Bawah</th>
-                    <th>Predikat Nilai</th>
-                    <th>Deskripsi Nilai</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
+        </form>
+        <div class="box">
+          <div class="box-header">
+            <h3 class="box-title">Data Deskripsi Nilai</h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th class="fit">No</th>
+                  <th>Batas Nilai Atas</th>
+                  <th>Batas Nilai Bawah</th>
+                  <th>Predikat Nilai</th>
+                  <th>Deskripsi Nilai</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
 
-                  <?php 
-                  $no=0;
-                  foreach($deskripsi_nilai as $s){
-                    $no=$no+1;
-                    echo "<tr>";
-                    echo "<td>$no</td>"; 
-                    echo "<td>{$s->Nilai_atas}</td>";
-                    echo "<td>{$s->Nilai_bawah}</td>";
-                    echo "<td>{$s->predikat}</td>";
-                    echo "<td>{$s->deskripsi}</td>";
-                    echo "<td class='hidden'>{$s->mapel_id}</td>";
-                    echo "<td>";
+                <?php 
+                $no=0;
+                foreach($deskripsi_nilai as $s){
+                  $no=$no+1;
+                  echo "<tr>";
+                  echo "<td>$no</td>"; 
+                  echo "<td>{$s->Nilai_atas}</td>";
+                  echo "<td>{$s->Nilai_bawah}</td>";
+                  echo "<td>{$s->predikat}</td>";
+                  echo "<td>{$s->deskripsi}</td>";
+                  echo "<td class='hidden'>{$s->mapel_id}</td>";
+                  echo "<td>";
+                  ?>
+                  <button class="btn btn-block btn-primary button-action btnedit" href="#editkategorinilai" data-toggle="modal">Edit</button>
+                  <a type="button" class="btn btn-block btn-primary button-action btnhapus " href="<?php echo base_url("index.php/penilaian/hapus_desknilai/".$s->id_deskripsi); ?>">Hapus
+                    <?php
+                    echo "</tr>";
                     ?>
-                    <button class="btn btn-block btn-primary button-action btnedit" href="#editkategorinilai" data-toggle="modal">Edit</button>
-                    <a type="button" class="btn btn-block btn-primary button-action btnhapus " href="<?php echo base_url("index.php/penilaian/hapus_desknilai/".$s->id_deskripsi); ?>">Hapus
-                      <?php
-                      echo "</tr>";
-                      ?>
-                      <div class="modal fade bs-example-modal-lg" id="editkategorinilai">
-                        <div class="modal-dialog modal-lg" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                           </div>
-                           <div class="modal-body"> 
-                            <form class="form-horizontal "  action="<?php echo base_url("index.php/penilaian/ubah_katnilai"); ?>" method="post">
-                              <div class="bigbox-mapel" > 
-                                <div class="box-mapel">
+                    <div class="modal fade bs-example-modal-lg" id="editkategorinilai">
+                      <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         </div>
+                         <div class="modal-body"> 
+                          <form class="form-horizontal "  action="<?php echo base_url("index.php/penilaian/ubah_katnilai"); ?>" method="post">
+                            <div class="bigbox-mapel" > 
+                              <div class="box-mapel">
 
-                                  <div class="form-group formgrup jarakform">
-                                    <label for="inputKurikulum" class="col-sm-2 control-label">Nama Kategori Nilai</label>
-                                    <div class="col-sm-4">
-                                      <input type="hidden" name="id" value="<?php echo $a->id_kategorinilai; ?>"> 
-                                      <input type="text" name="katnilai" class="form-control"  value="<?php echo $a->kategori_nilai ; ?>">
-                                    </div>
-                                  </div>
-
-                                  <div class="form-group formgrup jarakform">
-                                    <label for="inputKurikulum" class="col-sm-2 control-label">Bobot Nilai</label>
-                                    <div class="col-sm-4">
-                                      <input type="text" class="form-control"  name="bobot" value="<?php echo $a->bobot; ?>">
-                                    </div>
+                                <div class="form-group formgrup jarakform">
+                                  <label for="inputKurikulum" class="col-sm-2 control-label">Nama Kategori Nilai</label>
+                                  <div class="col-sm-4">
+                                    <input type="hidden" name="id" value="<?php echo $a->id_kategorinilai; ?>"> 
+                                    <input type="text" name="katnilai" class="form-control"  value="<?php echo $a->kategori_nilai ; ?>">
                                   </div>
                                 </div>
-                                <div class="modal-footer">
-                                  <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                      <button class="btn btn-danger"><a style="color: white;" href="<?php echo base_url("index.php/penilaian/ubah_katnilai/".$a->id_kategorinilai); ?>" >Submit
-                                      </button>
-                                      <button class="btn btn-danger" data-dismiss="modal" href="#lihatkategori" data-toggle="tab">Back</button>
-                                    </div>
+
+                                <div class="form-group formgrup jarakform">
+                                  <label for="inputKurikulum" class="col-sm-2 control-label">Bobot Nilai</label>
+                                  <div class="col-sm-4">
+                                    <input type="text" class="form-control"  name="bobot" value="<?php echo $a->bobot; ?>">
                                   </div>
                                 </div>
                               </div>
+                              <div class="modal-footer">
+                                <div class="form-group">
+                                  <div class="col-sm-offset-2 col-sm-10">
+                                    <button class="btn btn-danger"><a style="color: white;" href="<?php echo base_url("index.php/penilaian/ubah_katnilai/".$a->id_kategorinilai); ?>" >Submit
+                                    </button>
+                                    <button class="btn btn-danger" data-dismiss="modal" href="#lihatkategori" data-toggle="tab">Back</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
 
 
-                            </form>
-                          </div>
+                          </form>
                         </div>
                       </div>
-                      <?php
-                    }
-                    ?>                  
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.box-body -->
+                    </div>
+                    <?php
+                  }
+                  ?>                  
+                </tbody>
+              </table>
             </div>
+            <!-- /.box-body -->
           </div>
-          </div>
+        </div>
+      
+        </div>
+        <!-- /.tab-pane -->
+
+        <!-- /.tab-pane -->
+
+
+        </div>
 
     </div>
     <!-- /.nav-tabs-custom -->
